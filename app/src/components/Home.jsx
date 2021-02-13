@@ -23,29 +23,32 @@ function ListItemLink(props) {
 function Home(props) {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-     
-      <List component="nav" aria-label="secondary mailbox folders">
-        <ListItem button>
-          <ListItemText primary="月間シフト" />
-        </ListItem>
-        <Divider />
-        <ListItemLink href="#simple-list">
-          <ListItemText primary="管理者予定登録" />
-        </ListItemLink>
-        <Divider />
-        <ListItemLink href="#simple-list">
-          <ListItemText primary="個人予定登録" />
-        </ListItemLink>
-        <Divider />
-        <ListItemLink href="#simple-list">
-          <ListItemText primary="ユーザー管理画面" />
-        </ListItemLink>
-        <Divider />
-        <ListItemLink href="#simple-list">
-          <ListItemText primary="パスワード登録・変更" />
-        </ListItemLink>
-      </List>
+    <div>
+      <button onClick={()=> app.auth().signOut()}>ログアウト</button>
+
+      <div className={classes.root}>
+        <List component="nav" aria-label="secondary mailbox folders">
+          <ListItem button>
+            <ListItemText primary="月間シフト" />
+          </ListItem>
+          <Divider />
+          <ListItemLink href="#simple-list">
+            <ListItemText primary="管理者予定登録" />
+          </ListItemLink>
+          <Divider />
+          <ListItemLink href="#simple-list">
+            <ListItemText primary="個人予定登録" />
+          </ListItemLink>
+          <Divider />
+          <ListItemLink href="#simple-list">
+            <ListItemText primary="ユーザー管理画面" />
+          </ListItemLink>
+          <Divider />
+          <ListItemLink href="#simple-list">
+            <ListItemText primary="パスワード登録・変更" />
+          </ListItemLink>
+        </List>
+      </div>
     </div>
   );
 }
