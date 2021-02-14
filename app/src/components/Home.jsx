@@ -6,7 +6,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +26,13 @@ function Home(props) {
   const classes = useStyles();
   return (
     <div>
-      <button onClick={()=> app.auth().signOut()}>ログアウト</button>
+     
+
+      <AppBar position="static">
+        <Toolbar>
+          <Button onClick={()=> app.auth().signOut()} variant="contained" color="primary">ログアウト</Button>
+        </Toolbar>
+      </AppBar>
 
       <div className={classes.root}>
         <List component="nav" aria-label="secondary mailbox folders">
