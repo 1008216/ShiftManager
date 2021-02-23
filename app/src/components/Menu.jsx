@@ -15,8 +15,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     maxWidth: 360,
+    
     backgroundColor: theme.palette.background.paper,
   },
+  logout: {
+    margin: "0 0 0 auto" 
+  }
 }));
 
 function ListItemLink(props) {
@@ -32,7 +36,8 @@ function Menu(props) {
 
       <AppBar position="static">
         <Toolbar>
-          <Button onClick={()=> app.auth().signOut()} variant="contained" color="primary">ログアウト</Button>
+          <h1>SHIFT MANAGER</h1> 
+          <Button onClick={()=> app.auth().signOut()} variant="contained" color="primary" className={classes.logout}>ログアウト</Button>
         </Toolbar>
       </AppBar>
 
