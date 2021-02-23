@@ -13,6 +13,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
+import { DataGrid } from '@material-ui/data-grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,16 +61,44 @@ function IndividualPlan(props) {
           </ListItemLink>
         </List>
       </div>
-      <Dialog aria-labelledby="customized-dialog-title" open={open}>
+      <Dialog 
+      fullWidth={true}
+      aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle>
-          Modal title
+          業務一覧
         </DialogTitle>
         <DialogContent dividers>
-         aaa
+        <div style={{ height: 250, width: '100%' }}>
+      <DataGrid
+        columns={[
+          { field: 'name',
+            headerName: "業務名称"},
+          { field: 'requiredTime',
+            headerName: "所要時間",
+            width: 200},
+         { field: 'startDateTime',
+            headerName: "開始日時",
+            width: 200 }]}
+        
+        rows={[
+          { id: 1,  name: "XXXX",
+          requiredTime: "5",
+          startDateTime: "2020年03月01日 20:00" },
+          { id: 2, name: 'Material-UI',
+          requiredTime: "10",
+          startDateTime: "2020年03月01日 20:00"
+        },
+        ]}
+      />
+      
+    </div>
         </DialogContent>
         <DialogActions>
           <Button autoFocus color="primary" onClick={()=>setOpen(false)}>
-            Save changes
+            新規追加
+          </Button>
+          <Button autoFocus color="primary" onClick={()=>setOpen(false)}>
+            キャンセル
           </Button>
         </DialogActions>
       </Dialog>
