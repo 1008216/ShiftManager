@@ -33,6 +33,8 @@ function ListItemLink(props) {
 function IndividualPlan(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [registrationOpen, setRegistrationOpen] = React.useState(false);
+
   return (
     <div>
       <AppBar position="static">
@@ -61,6 +63,7 @@ function IndividualPlan(props) {
           </ListItemLink>
         </List>
       </div>
+
       <Dialog 
       fullWidth={true}
       aria-labelledby="customized-dialog-title" open={open}>
@@ -72,10 +75,11 @@ function IndividualPlan(props) {
       <DataGrid
         columns={[
           { field: 'name',
-            headerName: "業務名称"},
+            headerName: "業務名称",
+            width: 200},
           { field: 'requiredTime',
             headerName: "所要時間",
-            width: 200},
+            width: 120},
          { field: 'startDateTime',
             headerName: "開始日時",
             width: 200 }]}
@@ -87,14 +91,12 @@ function IndividualPlan(props) {
           { id: 2, name: 'Material-UI',
           requiredTime: "10",
           startDateTime: "2020年03月01日 20:00"
-        },
-        ]}
+          },]}
       />
-      
-    </div>
+        </div>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus color="primary" onClick={()=>setOpen(false)}>
+          <Button autoFocus color="primary" onClick={()=>setRegistrationOpen(true)}>
             新規追加
           </Button>
           <Button autoFocus color="primary" onClick={()=>setOpen(false)}>
@@ -102,6 +104,53 @@ function IndividualPlan(props) {
           </Button>
         </DialogActions>
       </Dialog>
+
+      
+
+      <Dialog 
+      fullWidth={true}
+      aria-labelledby="customized-dialog-title" open={registrationOpen}>
+        <DialogTitle>
+          業務登録画面
+        </DialogTitle>
+        <DialogContent dividers>
+        <div style={{ height: 250, width: '100%' }}>
+      <DataGrid
+        columns={[
+          { field: 'name',
+            headerName: "業務名称",
+            width: 200},
+          { field: 'requiredTime',
+            headerName: "所要時間",
+            width: 120},
+         { field: 'startDateTime',
+            headerName: "開始日時",
+            width: 200 }]}
+        
+        rows={[
+          { id: 1,  name: "XXXX",
+          requiredTime: "5",
+          startDateTime: "2020年03月01日 20:00" },
+          { id: 2, name: 'Material-UI',
+          requiredTime: "10",
+          startDateTime: "2020年03月01日 20:00"
+          },]}
+      />
+        </div>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus color="primary" onClick={()=>setOpen(false)}>
+            新規追加
+          </Button>
+          <Button autoFocus color="primary" onClick={()=>setRegistrationOpen(false)}>
+            キャンセル
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+
+
+
     </div>
   );
 }
